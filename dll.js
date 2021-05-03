@@ -107,6 +107,25 @@ export default class DoubleLinkedList {
    * Set a node at a specific index.
    */
   setNodeAtIndex(index, value) {
+    let count = 0;
+    let curr = this.head;
+
+    while (curr != null) {
+      if (count == index) {
+        curr.value = value;
+        return curr.value + " is the NEW value at index: " + index;
+      } else {
+        count++; // increase count
+        curr = curr.next; // replace curr with next value
+      }
+    }
+    return "no index with that number";
+  }
+
+  /**
+   *  Insert a node at a specific index.
+   */
+  insertAtIndex(index, val) {
     let node = new Node(value); // creates new node
     let count = 0; // keep track of index
     let curr = this.head; // curr node selection
@@ -119,18 +138,21 @@ export default class DoubleLinkedList {
           this.head.prev = node;
           this.head = node;
           this.head.next = oldHead;
+          return this;
         } else if (curr == this.tail) {
           // if tail is index
           let oldTail = this.tail;
           this.tail.next = node;
           this.tail = node;
           this.tail.prev = oldTail;
+          return this;
         } else {
           // if other indexes
           node.prev = curr.prev; // replace prev
           curr.prev.next = node;
           curr.prev = node;
           node.next = curr;
+          return this;
         }
       } else {
         count++;
@@ -138,17 +160,28 @@ export default class DoubleLinkedList {
       }
     }
     // replace value with new node;
+    return 'index not found';
   }
-
-  /**
-   *  Insert a node at a specific index.
-   */
-  insertAtIndex(index, val) {}
 
   /**
    * Remove a node at a specific index.
    */
-  removeAtIndex(index) {}
+  removeAtIndex(index) {
+    let curr = this.head;
+    let count = 0;
+
+    while (curr != null) {
+      if (count == index) {
+        curr.prev.next = curr.next;
+        curr.next.prev = curr.prev;
+        return this;
+      } else {
+        count++;
+        curr = curr.next;
+      }
+    }
+    return 'index not valid';
+  }
 
   print() {
     let curr = this.head;
@@ -164,19 +197,19 @@ export default class DoubleLinkedList {
   }
 }
 
-let list = new DoubleLinkedList();
+// let list = new DoubleLinkedList();
 
-list.push(1);
-list.push(2);
-list.push(3);
-list.push(4);
-list.push(5);
+// list.push(1);
+// list.push(2);
+// list.push(3);
+// list.push(4);
+// list.push(5);
 // console.log(list);
 // list.pop();
 // console.log(list);
 // list.shift();
 // list.unshift("unshift");
-console.log(list.print());
-console.log(list.getNodeAtIndex(3));
-list.setNodeAtIndex(0, 100);
-console.log(list.setNodeAtIndex(0, 100));
+// console.log(list.print());
+// console.log(list.getNodeAtIndex(3));
+// list.setNodeAtIndex(0, 100);
+// console.log(list.setNodeAtIndex(0, 100));
