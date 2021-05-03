@@ -13,6 +13,10 @@ button {
   margin-bottom: 8px;
 }
 
+button:hover {
+  background-color: red;
+}
+
 #wrapper {
   width: 50%;
   display: flex;

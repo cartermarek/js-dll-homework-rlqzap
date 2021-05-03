@@ -94,7 +94,8 @@ export default class DoubleLinkedList {
 
     while (curr != null) {
       if (count == index) {
-        return curr.value + " is the value at index: " + index;
+        return curr.value;
+        // + " is the value at index: " + index;
       } else {
         count++; // increase count
         curr = curr.next; // replace curr with next value
@@ -113,7 +114,8 @@ export default class DoubleLinkedList {
     while (curr != null) {
       if (count == index) {
         curr.value = value;
-        return curr.value + " is the NEW value at index: " + index;
+        return curr.value;
+        //" is the NEW value at index: " + index;
       } else {
         count++; // increase count
         curr = curr.next; // replace curr with next value
@@ -197,19 +199,21 @@ export default class DoubleLinkedList {
   }
 }
 
-// let list = new DoubleLinkedList();
+let list = new DoubleLinkedList();
 
-// list.push(1);
-// list.push(2);
-// list.push(3);
-// list.push(4);
-// list.push(5);
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
+list.push(5);
 // console.log(list);
 // list.pop();
 // console.log(list);
 // list.shift();
 // list.unshift("unshift");
 // console.log(list.print());
-// console.log(list.getNodeAtIndex(3));
+console.log(list.getNodeAtIndex(0));
 // list.setNodeAtIndex(0, 100);
 // console.log(list.setNodeAtIndex(0, 100));
+// console.log(list.print());
+// console.log(list);

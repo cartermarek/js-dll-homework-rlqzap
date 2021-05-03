@@ -21,11 +21,11 @@ next.addEventListener("click", function() {
   if (idx >= list.length - 1) {
     idx = 0;
     counter.innerHTML = idx;
-    viewer.src = list.getNodeAtIndex(idx).value;
+    viewer.src = list.getNodeAtIndex(idx);
   } else {
     idx++;
     counter.innerHTML = idx;
-    viewer.src = list.getNodeAtIndex(idx).value;
+    viewer.src = list.getNodeAtIndex(idx);
   }
 });
 
@@ -36,10 +36,10 @@ prev.addEventListener("click", function() {
   if (idx === 0) {
     idx = list.length - 1;
     counter.innerHTML = idx;
-    viewer.src = list.getNodeAtIndex(idx).value;
+    viewer.src = list.getNodeAtIndex(idx);
   } else {
     idx--;
     counter.innerHTML = idx;
-    viewer.src = list.getNodeAtIndex(idx).value;
+    viewer.src = list.getNodeAtIndex(idx);
   }
 });
